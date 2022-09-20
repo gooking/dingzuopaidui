@@ -6,9 +6,13 @@
 
 ## 应用效果
 
-| 首页 | 首页
+| 首页
+| :------:
+| <img src="https://dcdn.it120.cc/2022/09/18/3c7798f5-c1dc-487a-a6bb-1dab4eda28d0.png" width="250px">
+
+| 答题 | 活动规则
 | :------: | :------: |
-| <img src="https://dcdn.it120.cc/2022/09/18/3c7798f5-c1dc-487a-a6bb-1dab4eda28d0.png" width="250px"> | <img src="https://dcdn.it120.cc/2022/09/18/3c7798f5-c1dc-487a-a6bb-1dab4eda28d0.png" width="250px"> |
+| <img src="https://dcdn.it120.cc/2022/09/20/1c7aab5a-d129-44b8-9240-9c52b9aa2190.png" width="250px"> | <img src="https://dcdn.it120.cc/2022/09/20/c6f47b07-59e2-46f1-9607-1cae3fa04f23.png" width="250px"> |
 
 # 特别感谢
 
