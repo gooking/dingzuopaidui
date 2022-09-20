@@ -16,9 +16,10 @@
 		</view>
 		<view class="box-container">
 			<view class="title-box">
-				<view class="title">火力值<text>(50)</text></view>
+				<view class="title">火力值<text v-if="score != -1">({{ score }})</text></view>
 				<view class="btn">
-					<u-button type="primary" text="答题+5" shape="circle" plain></u-button>
+					<u-button v-if="mobileStatus == 1" openType="getPhoneNumber" @getphonenumber="getPhoneNumber" type="primary" text="答题+5" shape="circle" plain></u-button>
+					<u-button v-if="mobileStatus == 2" type="primary" text="答题+5" shape="circle" plain @click="dati"></u-button>
 				</view>
 			</view>
 			<view class="profile2">火力值可以免费赠送小菜一碟～</view>
@@ -29,7 +30,7 @@
 			<view class="title-box">
 				<view class="title">订订座</view>
 				<view class="btn">
-					<u-button type="primary" text="聚一下" shape="circle" plain></u-button>
+					<u-button type="primary" text="聚一下" shape="circle" plain @click=""></u-button>
 				</view>
 			</view>
 			<view class="profile1">上次相聚，1246天前</view>
@@ -41,7 +42,7 @@
 			<view class="title-box">
 				<view class="title">排排号</view>
 				<view class="btn">
-					<u-button type="primary" text="拿个号" shape="circle" plain></u-button>
+					<u-button type="primary" text="拿个号" shape="circle" plain @click=""></u-button>
 				</view>
 			</view>
 			<view class="user-info2">
@@ -65,7 +66,7 @@
 			<view class="month-year">9.2022</view>
 		</view>
 		<view class="fankui">
-			用户反馈
+			用户反馈 <!-- 需要考虑获取手机号码 -->
 		</view>
 	</view>
 </template>
@@ -73,63 +74,96 @@
 
 
 <script>
+	const dayjs = require('dayjs')
 	export default {
 		data() {
 			return {
-				
+				mobileStatus: 0, // 0 未判断； 1 未绑定手机好吗； 2 已绑定手机号码
+				score: -1, // 积分
 			}
 		},
 		onLoad(e) {
-			
+			uni.$on('loginOK', data => {
+				this._userDetail()
+				this.userAmount()
+			})
 		},
 		onShow() {
 			
 		},
 		onShareAppMessage() {
 			return {
-				title: '"' + this.sysconfigMap.mallName + '" ' + this.sysconfigMap.share_profile,
+				title: '订座排队小程序',
 				path: '/pages/index/index?inviter_id=' + this.uid
 			}
 		},
 		methods: {
-			
+			async _userDetail() {
+				// https://www.yuque.com/apifm/nu0f75/zgf8pu
+				const res = await this.$wxapi.userDetail(this.token)
+				if (res.code == 0) {
+					if (res.data.base.mobile) {
+						this.mobileStatus = 2
+					} else {
+						this.mobileStatus = 1
+					}
+				}
+			},
+			async userAmount() {
+				// https://www.yuque.com/apifm/nu0f75/wrqkcb
+				const res = await this.$wxapi.userAmount(this.token)
+				if (res.code == 0) {
+					this.score = res.data.score
+				}
+			},
+			async getPhoneNumber(e) {
+				if (!e.detail.errMsg || e.detail.errMsg != "getPhoneNumber:ok") {
+					console.error(e)
+					return
+				}
+				const res = await this.$wxapi.bindMobileWxappV2(this.token, e.detail.code)
+				if (res.code == 0) {
+					uni.showToast({
+						title: '登陆成功',
+						icon: 'success',
+						duration: 2000
+					})
+					this.$u.vuex('mobile', res.data)
+					this.mobileStatus = 2
+				} else {
+					uni.showModal({
+						title: '提示',
+						content: res.msg,
+						showCancel: false
+					})
+				}
+			},
+			async dati() {
+				// 判断今日是否已经答题
+				const res = await this.$wxapi.voteGroups({
+					token: this.token,
+					pageSize: 1
+				})
+				if (res.code == 0) {
+					const item = res.data.result[0]
+					console.log(item.dateAdd);
+					console.log(dayjs().format('YYYY-MM-DD'));
+					if (item.dateAdd.indexOf(dayjs().format('YYYY-MM-DD')) != -1) {
+						uni.showToast({
+							title: '您今天已完成答题～',
+							icon: 'none'
+						})
+						return
+					}
+				}
+				uni.navigateTo({
+					url: '/pages/dati/index'
+				})
+			}
 		}
 	}
 </script>
 <style scoped lang="scss">
-	.container {
-		background-image:url('https://dcdn.it120.cc/2022/09/18/2e08ed01-8433-4ba4-8f78-1ef128216f77.jpg');
-		min-width: 100vw;
-		min-height: 100vh;
-	}
-	.user-info {
-		padding: 180rpx 64rpx 0 64rpx;
-		display: flex;
-		align-items: center;
-		.avatar {
-			width: 160rpx;
-			height: 160rpx;
-			border-radius: 50%;
-			overflow: hidden;
-			flex-shrink: 0;
-		}
-		.info {
-			margin-left: 32rpx;
-			.nick {
-				font-size: 48rpx;
-				font-weight: bold;
-			}
-			.level {
-				display: flex;
-				margin-top: 24rpx;
-				text {
-					font-size: 28rpx;
-					line-height: 56rpx;
-					color: #2979ff;
-				}
-			}
-		}
-	}
 	.box-container {
 		width: 622rpx;
 		margin-left: 64rpx;
@@ -159,10 +193,6 @@
 			padding: 0rpx 32rpx;
 			color: #666;
 		}
-	}
-	.h32 {
-		width: 100vw;
-		height: 32rpx;
 	}
 	.app-name {
 		box-sizing: border-box;

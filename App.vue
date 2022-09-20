@@ -180,4 +180,51 @@
 	    margin-right: 8rpx;
 	  }
 	}
+	// 背景以及头部公用样式
+	.container {
+		background-image:url('https://dcdn.it120.cc/2022/09/18/2e08ed01-8433-4ba4-8f78-1ef128216f77.jpg');
+		min-width: 100vw;
+		min-height: 100vh;
+	}
+	.user-info {
+		padding: 180rpx 64rpx 0 64rpx;
+		display: flex;
+		align-items: center;
+		position: relative;
+		.avatar {
+			width: 160rpx;
+			height: 160rpx;
+			border-radius: 50%;
+			overflow: hidden;
+			flex-shrink: 0;
+		}
+		.info {
+			margin-left: 32rpx;
+			.nick {
+				font-size: 48rpx;
+				font-weight: bold;
+			}
+			.level {
+				display: flex;
+				margin-top: 24rpx;
+				text {
+					font-size: 28rpx;
+					line-height: 56rpx;
+					color: #2979ff;
+				}
+			}
+		}
+	}
+	.back {
+		position: absolute;
+		left: 32rpx;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		z-index: 999;
+	}
+	.h32 {
+		width: 100vw;
+		height: 32rpx;
+	}
 </style>

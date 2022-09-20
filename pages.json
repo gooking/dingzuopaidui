@@ -5,6 +5,18 @@
 		    "style": {
 				"navigationStyle": "custom"
 		    }
+		},
+		{
+		    "path" : "pages/dati/index",
+		    "style": {
+				"navigationStyle": "custom"
+		    }
+		},
+		{
+		    "path" : "pages/about/about",
+		    "style": {
+				"navigationBarTitleText": ""
+		    }
 		}
     ],
 	"globalStyle": {
