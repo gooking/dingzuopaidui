@@ -14,6 +14,18 @@
 | :------: | :------: |
 | <img src="https://dcdn.it120.cc/2022/09/20/1c7aab5a-d129-44b8-9240-9c52b9aa2190.png" width="250px"> | <img src="https://dcdn.it120.cc/2022/09/20/c6f47b07-59e2-46f1-9607-1cae3fa04f23.png" width="250px"> |
 
+| 选择门店 | 暂无门店
+| :------: | :------: |
+| <img src="https://dcdn.it120.cc/2022/09/23/f652109e-b598-4eb2-b4d9-0c6cbdc32495.png" width="250px"> | <img src="https://dcdn.it120.cc/2022/09/23/814e4cf5-6c05-444d-b89c-f5ea9e0e5c92.png" width="250px"> |
+
+| 订座 | 订座
+| :------: | :------: |
+| <img src="https://dcdn.it120.cc/2022/09/23/1a3a28be-4eae-435f-8aa2-c5913c7d9681.png" width="250px"> | <img src="https://dcdn.it120.cc/2022/09/23/74fb51ac-c78b-4ad5-b7f6-37a210255933.png" width="250px"> |
+
+| 订座成功
+| :------:
+| <img src="https://dcdn.it120.cc/2022/09/23/b77d3177-5ef7-4d9e-9804-0a7a6a0f4a62.png" width="250px">
+
 # 特别感谢
 
 - [uni-app 使得多端开发更简单](hhttps://uniapp.dcloud.io/)

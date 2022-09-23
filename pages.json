@@ -17,6 +17,24 @@
 		    "style": {
 				"navigationBarTitleText": ""
 		    }
+		},
+		{
+		    "path" : "pages/shop/select",
+		    "style": {
+				"navigationBarTitleText": "选择门店"
+		    }
+		},
+		{
+		    "path" : "pages/dingzuo/submit",
+		    "style": {
+				"navigationBarTitleText": "填写订座信息"
+		    }
+		},
+		{
+		    "path" : "pages/dingzuo/success",
+		    "style": {
+				"navigationBarTitleText": "订座成功"
+		    }
 		}
     ],
 	"globalStyle": {

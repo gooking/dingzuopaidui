@@ -135,6 +135,9 @@
             "subPackages" : true
         },
         "usingComponents" : true,
+		"requiredPrivateInfos": [
+			"getLocation"
+		],
         "permission" : {
             "scope.userLocation" : {
                 "desc" : "为你推荐附近的门店"

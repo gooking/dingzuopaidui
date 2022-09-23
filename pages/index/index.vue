@@ -30,7 +30,7 @@
 			<view class="title-box">
 				<view class="title">订订座</view>
 				<view class="btn">
-					<u-button type="primary" text="聚一下" shape="circle" plain @click=""></u-button>
+					<u-button type="primary" text="聚一下" shape="circle" plain @click="selectshop"></u-button>
 				</view>
 			</view>
 			<view class="profile1">上次相聚，1246天前</view>
@@ -42,7 +42,7 @@
 			<view class="title-box">
 				<view class="title">排排号</view>
 				<view class="btn">
-					<u-button type="primary" text="拿个号" shape="circle" plain @click=""></u-button>
+					<u-button type="primary" text="拿个号" shape="circle" plain @click="selectshop"></u-button>
 				</view>
 			</view>
 			<view class="user-info2">
@@ -65,9 +65,9 @@
 			<view class="day">17</view>
 			<view class="month-year">9.2022</view>
 		</view>
-		<view class="fankui">
-			用户反馈 <!-- 需要考虑获取手机号码 -->
-		</view>
+		<!-- <view class="fankui">
+			用户反馈 需要考虑获取手机号码
+		</view> -->
 	</view>
 </template>
 
@@ -83,6 +83,8 @@
 			}
 		},
 		onLoad(e) {
+			this._userDetail()
+			this.userAmount()
 			uni.$on('loginOK', data => {
 				this._userDetail()
 				this.userAmount()
@@ -146,8 +148,6 @@
 				})
 				if (res.code == 0) {
 					const item = res.data.result[0]
-					console.log(item.dateAdd);
-					console.log(dayjs().format('YYYY-MM-DD'));
 					if (item.dateAdd.indexOf(dayjs().format('YYYY-MM-DD')) != -1) {
 						uni.showToast({
 							title: '您今天已完成答题～',
@@ -159,7 +159,25 @@
 				uni.navigateTo({
 					url: '/pages/dati/index'
 				})
-			}
+			},
+			async selectshop() {
+				// 判断有没有订过座
+				const res = await this.$wxapi.yuyueMyJoinLogs({
+					token: this.token
+				})
+				if (res.code == 0) {
+					const item = res.data.result[0]
+					if (item.status < 2) {
+						uni.navigateTo({
+							url: '/pages/dingzuo/success'
+						})
+						return
+					}
+				}
+				uni.navigateTo({
+					url: '/pages/shop/select'
+				})
+			},
 		}
 	}
 </script>
