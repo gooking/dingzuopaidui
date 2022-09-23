@@ -35,6 +35,18 @@
 		    "style": {
 				"navigationBarTitleText": "订座成功"
 		    }
+		},
+		{
+		    "path" : "pages/fankui/index",
+		    "style": {
+				"navigationBarTitleText": "吐个槽"
+		    }
+		},
+		{
+		    "path" : "pages/fankui/add",
+		    "style": {
+				"navigationBarTitleText": "吐个槽"
+		    }
 		}
     ],
 	"globalStyle": {

@@ -6,7 +6,7 @@
 			goLogin: false,
 			subDomain: 'hdldzpd', // 改为你自己的专属域名
 			merchantId: 29, // 改为你自己的商户ID
-			version: '0.0.1',
+			version: '1.0.0',
 			sysconfigkeys: 'mallName', // 需要批量读取的系统参数
 			wxpayOpenAppId: 'xxxxx', // 微信开放平台的移动端应用appID
 			openAlipayProvider: false, // 是否开通支付宝支付

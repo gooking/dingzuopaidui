@@ -26,17 +26,34 @@
 | :------:
 | <img src="https://dcdn.it120.cc/2022/09/23/b77d3177-5ef7-4d9e-9804-0a7a6a0f4a62.png" width="250px">
 
-# 特别感谢
+| 用户反馈 | 订座
+| :------: | :------: |
+| <img src="https://dcdn.it120.cc/2022/09/23/c8512fe5-87ce-4af2-b506-509932ac4668.png" width="250px"> | <img src="https://dcdn.it120.cc/2022/09/23/5bac846d-d9a5-48e9-b965-e60f69a33f85.png" width="250px"> |
+
+## 关于后端
+
+本项目是基于 “api工厂” 开放的前端api接口开发的纯前端项目，你也可以直接使用“api工厂”作为你的后端及服务器，也可以选择自行开发后端。
+
+如果你也是使用的“api工厂”，可以将我的测试数据克隆过去，可以更加方便的进行测试及开发【商户ID填 29 即可】：
+
+<img src="https://dcdn.it120.cc/2022/09/23/3c890fa9-bfc0-4ba0-9dac-60cb6315cb1e.png" width="500px">
+
+## 特别感谢
 
 - [uni-app 使得多端开发更简单](hhttps://uniapp.dcloud.io/)
 - [uview2.0 全面的组件和便捷的工具会让您信手拈来，如鱼得水](https://www.uviewui.com/)
 - [api工厂 前端大中台 更加专注前端开发](https://www.it120.cc/)
+- [api工厂-SDK](https://www.yuque.com/apifm/nu0f75)
 
-# 微信交流群
+## 加我微信
+
+<img src="https://dcdn.it120.cc/2021/06/23/3cf5a664-90d8-484f-9652-ef4ca46a926d.jpeg" width="250px">
+
+## 微信交流群
 
 <img src="https://dcdn.it120.cc/2022/09/18/5d107e9f-084c-4aff-a786-e989d4c549fc.png" width="250px">
 
-# 诚邀请一起来开发
+## 诚邀请一起来开发
 
 1. 右上角 “Star” 点击鼓励
 2. 右上角 “Fork” ，将代码复制一个副本到你自己的 Git 账号下

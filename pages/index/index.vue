@@ -22,7 +22,7 @@
 					<u-button v-if="mobileStatus == 2" type="primary" text="答题+5" shape="circle" plain @click="dati"></u-button>
 				</view>
 			</view>
-			<view class="profile2">火力值可以免费赠送小菜一碟～</view>
+			<view class="profile2">火力值可以免费兑换本店菜品～</view>
 			<view class="h32"></view>
 		</view>
 		<view class="app-name">订座排队小程序</view>
@@ -65,9 +65,9 @@
 			<view class="day">17</view>
 			<view class="month-year">9.2022</view>
 		</view>
-		<!-- <view class="fankui">
-			用户反馈 需要考虑获取手机号码
-		</view> -->
+		<view class="fankui" @click="fankui">
+			用户反馈
+		</view>
 	</view>
 </template>
 
@@ -176,6 +176,11 @@
 				}
 				uni.navigateTo({
 					url: '/pages/shop/select'
+				})
+			},
+			fankui() {
+				uni.navigateTo({
+					url: '/pages/fankui/index'
 				})
 			},
 		}
