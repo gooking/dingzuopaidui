@@ -47,10 +47,13 @@
 
 		},
 		onLoad(e) {
+			
+		},
+		onShow() {
 			uni.showLoading({
 				
 			})
-			uni.getLocation({
+			wx.getFuzzyLocation({
 				type: 'wgs84', //wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
 				success: (res) => {
 					console.log(res);
@@ -58,18 +61,15 @@
 					this.longitude = res.longitude
 					this.fetchShops(res.latitude, res.longitude, '')
 				},
-				fail(e) {
+				fail: e => {
 					console.error(e)
-					WXAUTH.checkAndAuthorize('scope.userLocation')
+					WXAUTH.checkAndAuthorize('scope.userFuzzyLocation')
 					this.apiok = true
 				},
 				complete: () => {
 					uni.hideLoading()
 				}
 			})
-		},
-		onShow() {
-
 		},
 		onShareAppMessage(e) {
 			return {

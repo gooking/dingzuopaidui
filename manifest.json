@@ -135,9 +135,9 @@
             "subPackages" : true
         },
         "usingComponents" : true,
-        "requiredPrivateInfos" : [ "getLocation" ],
+        "requiredPrivateInfos" : [ "getFuzzyLocation" ],
         "permission" : {
-            "scope.userLocation" : {
+            "scope.userFuzzyLocation" : {
                 "desc" : "为你推荐附近的门店"
             }
         }
